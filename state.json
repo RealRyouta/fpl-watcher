@@ -1,0 +1,85 @@
+{
+  "bench_alerted": [],
+  "last_morning": "2026-09-10",
+  "next_deadline": {
+    "event": 4,
+    "time": "2026-09-12T12:30:00Z"
+  },
+  "players": {
+    "1": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "109": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "115": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "124": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "154": {
+      "chance": 100,
+      "news": "",
+      "status": "a"
+    },
+    "249": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "31": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "368": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "387": {
+      "chance": 75,
+      "news": "Back injury - 75% chance of playing",
+      "status": "d"
+    },
+    "399": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "411": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "464": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "565": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "8": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "84": {
+      "chance": 25,
+      "news": "Calf injury - 25% chance of playing",
+      "status": "d"
+    }
+  }
+}
