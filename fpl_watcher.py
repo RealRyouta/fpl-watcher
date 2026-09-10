@@ -10,6 +10,8 @@ On each check it reports, via ntfy push notification:
   * flag / chance-of-playing changes and injury-news updates for your 15 players
   * (morning only) players who started their previous match but didn't start
     their latest one
+  * (daily at PRICE_CHECK_HOUR) players FPL's official price change predictor
+    projects to rise or fall at tonight's price update
 
 Only the Python standard library is used, so there is nothing to install.
 """
@@ -32,10 +34,13 @@ MORNING_HOUR = int(os.environ.get("MORNING_HOUR", "7"))
 # Scheduled runs can start a few minutes late, so the window is a bit wider
 # than 30 min. With a 15-min schedule the alert lands ~30-45 min before.
 PRE_DEADLINE_MINUTES = int(os.environ.get("PRE_DEADLINE_MINUTES", "45"))
+PRICE_CHECK_HOUR = int(os.environ.get("PRICE_CHECK_HOUR", "20"))
+# FPL likelihood runs -5..5 (sign = direction). 4 = likely, 5 = very likely.
+PRICE_MIN_LIKELIHOOD = int(os.environ.get("PRICE_MIN_LIKELIHOOD", "4"))
 BENCH_LOOKBACK_HOURS = 96  # only report non-starts from matches this recent
 QUIET_WHEN_NO_CHANGES = os.environ.get("QUIET_WHEN_NO_CHANGES", "true") == "true"
 STATE_FILE = os.environ.get("STATE_FILE", "state.json")
-FORCE = os.environ.get("FORCE_CHECK", "").strip().lower()  # "morning" / "deadline"
+FORCE = os.environ.get("FORCE_CHECK", "").strip().lower()  # "morning" / "deadline" / "price"
 
 API = "https://fantasy.premierleague.com/api"
 STATUS_LABEL = {
@@ -122,6 +127,11 @@ def which_checks_are_due(state, now):
         local_now.hour >= MORNING_HOUR and state.get("last_morning") != today
     ):
         due.append("morning")
+
+    if FORCE == "price" or (
+        local_now.hour >= PRICE_CHECK_HOUR and state.get("last_price_check") != today
+    ):
+        due.append("price")
 
     nd = state.get("next_deadline")
     if FORCE == "deadline":
@@ -218,6 +228,39 @@ def bench_surprises(picks, elements, teams, state, now):
     return lines
 
 
+def price_alerts(picks, elements, teams, now, include_all=False):
+    """Players FPL projects to change price at tonight's update."""
+    hits, closest = [], []
+    for p in picks:
+        el = elements[p["element"]]
+        locked = el.get("price_change_locked_until")
+        if locked and parse_time(locked) > now:
+            continue
+        tonight = next((x for x in el.get("price_change_projections") or [] if x.get("offset") == 0), None)
+        if not tonight:
+            continue
+        try:
+            projected = float(tonight["projected_percent"])
+        except (TypeError, ValueError):
+            continue
+        likelihood = int(tonight.get("likelihood") or 0)
+        name = f"{el['web_name']} ({teams[el['team']]})"
+        role = "XI" if p["position"] <= 11 else "Bench"
+        price = el["now_cost"] / 10
+        rising = projected > 0
+        new_price = price + (0.1 if rising else -0.1)
+        calib = " (FPL still calibrating)" if el.get("price_change_calibrating") else ""
+        line = (f"{'📈' if rising else '📉'} {name} [{role}] £{price:.1f}m → £{new_price:.1f}m: "
+                f"{abs(projected):.0f}% projected tonight{calib}")
+        closest.append((abs(projected), line))
+        if abs(likelihood) >= PRICE_MIN_LIKELIHOOD or abs(projected) >= 100:
+            hits.append(line)
+    if include_all and not hits:
+        closest.sort(reverse=True)
+        return [], [l for _, l in closest[:3]]
+    return hits, []
+
+
 # ------------------------------------------------------------------ main ----
 def main():
     now = datetime.now(timezone.utc)
@@ -250,6 +293,21 @@ def main():
         print("No squad found yet (season not started?).")
         return
 
+    local_today = now.astimezone(LOCAL_TZ).date().isoformat()
+
+    if "price" in due:
+        hits, closest = price_alerts(picks, elements, teams, now, include_all=(FORCE == "price"))
+        if hits:
+            notify("FPL price changes tonight", "\n".join(hits), priority="high", tags="moneybag")
+        elif closest:
+            notify("FPL price check (test)",
+                   "No one projected to change tonight. Closest:\n" + "\n".join(closest), tags="moneybag")
+        state["last_price_check"] = local_today
+
+    if "morning" not in due and "deadline" not in due:
+        save_state(state)
+        return
+
     flag_lines, snapshot = flag_changes(picks, elements, teams, state.get("players", {}))
     bench_lines = bench_surprises(picks, elements, teams, state, now) if "morning" in due else []
     state["players"] = snapshot
@@ -278,7 +336,7 @@ def main():
                    tags="soccer")
 
     if "morning" in due:
-        state["last_morning"] = now.astimezone(LOCAL_TZ).date().isoformat()
+        state["last_morning"] = local_today
     if "deadline" in due and nxt:
         state["last_deadline_event"] = nxt["id"]
     save_state(state)
