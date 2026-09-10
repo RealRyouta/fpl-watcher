@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: "Force a check now for testing: morning or deadline"
+        description: "Force a check now for testing: morning, deadline or price"
         required: false
         default: ""
 
