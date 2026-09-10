@@ -1,0 +1,42 @@
+name: FPL watcher
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # the script decides whether a check is actually due
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force a check now for testing: morning or deadline"
+        required: false
+        default: ""
+
+permissions:
+  contents: write   # to commit state.json
+
+concurrency:
+  group: fpl-watcher
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Run watcher
+        env:
+          FPL_TEAM_ID: "167421"
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          FORCE_CHECK: ${{ github.event.inputs.force }}
+        run: python3 fpl_watcher.py
+
+      - name: Save state
+        run: |
+          if [[ -n "$(git status --porcelain state.json)" ]]; then
+            git config user.name "fpl-watcher"
+            git config user.email "fpl-watcher@users.noreply.github.com"
+            git add state.json
+            git commit -m "Update watcher state [skip ci]"
+            git push
+          fi
