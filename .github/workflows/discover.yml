@@ -1,0 +1,19 @@
+name: FPL discovery (temporary)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - run: python3 discover.py
+      - run: |
+          git config user.name "fpl-watcher"
+          git config user.email "fpl-watcher@users.noreply.github.com"
+          git pull --rebase
+          git add discovery.json
+          git commit -m "Discovery output [skip ci]" || true
+          git push
