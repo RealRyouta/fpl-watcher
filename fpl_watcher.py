@@ -302,7 +302,8 @@ def main():
         elif closest:
             notify("FPL price check (test)",
                    "No one projected to change tonight. Closest:\n" + "\n".join(closest), tags="moneybag")
-        state["last_price_check"] = local_today
+        if FORCE != "price":  # a manual test shouldn't use up tonight's real check
+            state["last_price_check"] = local_today
 
     if "morning" not in due and "deadline" not in due:
         save_state(state)
