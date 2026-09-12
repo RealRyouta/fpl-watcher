@@ -1,7 +1,7 @@
 {
   "bench_alerted": [],
   "last_morning": "2026-09-12",
-  "last_price_check": "2026-09-11",
+  "last_price_check": "2026-09-12",
   "next_deadline": {
     "event": 5,
     "time": "2026-09-18T17:30:00Z"
