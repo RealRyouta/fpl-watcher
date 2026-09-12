@@ -1,6 +1,6 @@
 {
   "bench_alerted": [],
-  "last_morning": "2026-09-11",
+  "last_morning": "2026-09-12",
   "last_price_check": "2026-09-11",
   "next_deadline": {
     "event": 4,
@@ -48,9 +48,9 @@
       "status": "a"
     },
     "387": {
-      "chance": 75,
-      "news": "Back injury - 75% chance of playing",
-      "status": "d"
+      "chance": 100,
+      "news": "",
+      "status": "a"
     },
     "399": {
       "chance": null,
@@ -78,9 +78,9 @@
       "status": "a"
     },
     "84": {
-      "chance": 25,
-      "news": "Calf injury - 25% chance of playing",
-      "status": "d"
+      "chance": 0,
+      "news": "Calf injury - Unknown return date",
+      "status": "i"
     }
   }
 }
