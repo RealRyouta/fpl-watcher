@@ -1,6 +1,8 @@
 {
-  "bench_alerted": [],
-  "last_morning": "2026-09-12",
+  "bench_alerted": [
+    "200:33"
+  ],
+  "last_morning": "2026-09-13",
   "last_price_check": "2026-09-12",
   "next_deadline": {
     "event": 5,
@@ -32,6 +34,11 @@
       "news": "",
       "status": "a"
     },
+    "200": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
     "249": {
       "chance": null,
       "news": "",
@@ -52,7 +59,7 @@
       "news": "",
       "status": "a"
     },
-    "399": {
+    "40": {
       "chance": null,
       "news": "",
       "status": "a"
@@ -76,11 +83,6 @@
       "chance": null,
       "news": "",
       "status": "a"
-    },
-    "84": {
-      "chance": 0,
-      "news": "Calf injury - Unknown return date",
-      "status": "i"
     }
   }
 }
