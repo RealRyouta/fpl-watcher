@@ -1,8 +1,9 @@
 {
   "bench_alerted": [
-    "200:33"
+    "200:33",
+    "565:41"
   ],
-  "last_morning": "2026-09-18",
+  "last_morning": "2026-09-19",
   "last_price_check": "2026-09-18",
   "next_deadline": {
     "event": 6,
@@ -31,11 +32,6 @@
     },
     "154": {
       "chance": 100,
-      "news": "",
-      "status": "a"
-    },
-    "200": {
-      "chance": null,
       "news": "",
       "status": "a"
     },
@@ -70,6 +66,11 @@
       "status": "a"
     },
     "464": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "469": {
       "chance": null,
       "news": "",
       "status": "a"
