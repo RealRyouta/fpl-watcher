@@ -3,7 +3,7 @@
     "200:33",
     "565:41"
   ],
-  "last_morning": "2026-09-21",
+  "last_morning": "2026-09-22",
   "last_price_check": "2026-09-21",
   "next_deadline": {
     "event": 6,
@@ -31,9 +31,9 @@
       "status": "a"
     },
     "154": {
-      "chance": 100,
-      "news": "",
-      "status": "a"
+      "chance": 75,
+      "news": "Muscular injury - 75% chance of playing",
+      "status": "d"
     },
     "249": {
       "chance": null,
