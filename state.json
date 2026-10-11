@@ -3,7 +3,7 @@
     "200:33",
     "565:41"
   ],
-  "last_morning": "2026-10-10",
+  "last_morning": "2026-10-11",
   "last_price_check": "2026-10-10",
   "next_deadline": {
     "event": 7,
@@ -41,19 +41,14 @@
       "status": "a"
     },
     "31": {
-      "chance": 75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "status": "d"
+      "chance": 100,
+      "news": "",
+      "status": "a"
     },
     "368": {
       "chance": null,
       "news": "",
       "status": "a"
-    },
-    "387": {
-      "chance": 75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "status": "d"
     },
     "40": {
       "chance": null,
@@ -61,6 +56,11 @@
       "status": "a"
     },
     "411": {
+      "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "447": {
       "chance": null,
       "news": "",
       "status": "a"
