@@ -4,7 +4,7 @@
     "565:41",
     "368:58"
   ],
-  "last_morning": "2026-10-23",
+  "last_morning": "2026-10-24",
   "last_price_check": "2026-10-23",
   "next_deadline": {
     "event": 9,
@@ -51,11 +51,6 @@
       "news": "",
       "status": "a"
     },
-    "368": {
-      "chance": 0,
-      "news": "Hamstring injury - Unknown return date",
-      "status": "i"
-    },
     "40": {
       "chance": null,
       "news": "",
@@ -72,9 +67,9 @@
       "status": "a"
     },
     "469": {
-      "chance": 100,
-      "news": "",
-      "status": "a"
+      "chance": 75,
+      "news": "Arm injury - 75% chance of playing",
+      "status": "d"
     },
     "565": {
       "chance": null,
@@ -83,6 +78,11 @@
     },
     "8": {
       "chance": null,
+      "news": "",
+      "status": "a"
+    },
+    "94": {
+      "chance": 100,
       "news": "",
       "status": "a"
     }
