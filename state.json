@@ -2,9 +2,11 @@
   "bench_alerted": [
     "200:33",
     "565:41",
-    "368:58"
+    "368:58",
+    "8:71",
+    "165:73"
   ],
-  "last_morning": "2026-10-24",
+  "last_morning": "2026-10-25",
   "last_price_check": "2026-10-24",
   "next_deadline": {
     "event": 9,
@@ -37,9 +39,9 @@
       "status": "a"
     },
     "165": {
-      "chance": 100,
-      "news": "",
-      "status": "a"
+      "chance": 75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "status": "d"
     },
     "249": {
       "chance": null,
@@ -77,9 +79,9 @@
       "status": "a"
     },
     "8": {
-      "chance": null,
-      "news": "",
-      "status": "a"
+      "chance": 75,
+      "news": "Hip injury - 75% chance of playing",
+      "status": "d"
     },
     "94": {
       "chance": 100,
