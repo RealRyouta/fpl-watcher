@@ -7,7 +7,7 @@
     "165:73",
     "447:75"
   ],
-  "last_morning": "2026-10-29",
+  "last_morning": "2026-10-30",
   "last_price_check": "2026-10-29",
   "next_deadline": {
     "event": 9,
@@ -70,9 +70,9 @@
       "status": "a"
     },
     "469": {
-      "chance": 75,
-      "news": "Arm injury - 75% chance of playing",
-      "status": "d"
+      "chance": 100,
+      "news": "",
+      "status": "a"
     },
     "565": {
       "chance": null,
