@@ -7,7 +7,7 @@
     "165:73",
     "447:75"
   ],
-  "last_morning": "2026-11-05",
+  "last_morning": "2026-11-06",
   "last_price_check": "2026-11-05",
   "next_deadline": {
     "event": 10,
@@ -50,9 +50,9 @@
       "status": "a"
     },
     "31": {
-      "chance": 100,
-      "news": "",
-      "status": "a"
+      "chance": 75,
+      "news": "Knee injury - 75% chance of playing",
+      "status": "d"
     },
     "40": {
       "chance": null,
