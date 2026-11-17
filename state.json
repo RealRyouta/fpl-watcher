@@ -7,7 +7,7 @@
     "165:73",
     "447:75"
   ],
-  "last_morning": "2026-11-16",
+  "last_morning": "2026-11-17",
   "last_price_check": "2026-11-16",
   "next_deadline": {
     "event": 11,
@@ -70,9 +70,9 @@
       "status": "a"
     },
     "469": {
-      "chance": 100,
-      "news": "",
-      "status": "a"
+      "chance": 75,
+      "news": "Ankle injury - 75% chance of playing",
+      "status": "d"
     },
     "566": {
       "chance": null,
