@@ -5,9 +5,10 @@
     "368:58",
     "8:71",
     "165:73",
-    "447:75"
+    "447:75",
+    "94:103"
   ],
-  "last_morning": "2026-11-23",
+  "last_morning": "2026-11-24",
   "last_price_check": "2026-11-23",
   "next_deadline": {
     "event": 12,
@@ -15,8 +16,8 @@
   },
   "players": {
     "1": {
-      "chance": 75,
-      "news": "Shoulder injury - 75% chance of playing",
+      "chance": 50,
+      "news": "Shoulder injury - 50% chance of playing",
       "status": "d"
     },
     "109": {
