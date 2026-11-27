@@ -9,10 +9,10 @@
     "94:103"
   ],
   "last_morning": "2026-11-27",
-  "last_price_check": "2026-11-26",
+  "last_price_check": "2026-11-27",
   "next_deadline": {
-    "event": 12,
-    "time": "2026-11-27T18:30:00Z"
+    "event": 13,
+    "time": "2026-12-01T18:30:00Z"
   },
   "players": {
     "1": {
