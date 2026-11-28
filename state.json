@@ -8,7 +8,7 @@
     "447:75",
     "94:103"
   ],
-  "last_morning": "2026-11-27",
+  "last_morning": "2026-11-28",
   "last_price_check": "2026-11-27",
   "next_deadline": {
     "event": 13,
@@ -16,8 +16,8 @@
   },
   "players": {
     "1": {
-      "chance": 50,
-      "news": "Shoulder injury - 50% chance of playing",
+      "chance": 75,
+      "news": "Shoulder injury - 75% chance of playing",
       "status": "d"
     },
     "109": {
@@ -40,17 +40,22 @@
       "news": "",
       "status": "a"
     },
-    "165": {
-      "chance": 0,
-      "news": "Thigh injury - Unknown return date",
-      "status": "i"
-    },
     "249": {
       "chance": null,
       "news": "",
       "status": "a"
     },
     "31": {
+      "chance": 100,
+      "news": "",
+      "status": "a"
+    },
+    "346": {
+      "chance": 100,
+      "news": "",
+      "status": "a"
+    },
+    "366": {
       "chance": 100,
       "news": "",
       "status": "a"
@@ -81,11 +86,6 @@
       "status": "a"
     },
     "8": {
-      "chance": 100,
-      "news": "",
-      "status": "a"
-    },
-    "94": {
       "chance": 100,
       "news": "",
       "status": "a"
